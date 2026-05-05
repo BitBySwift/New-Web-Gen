@@ -1,4 +1,4 @@
-# # Placement Lab — New Web Gen
+# Placement Lab — New Web Gen
 
 A modern, job-oriented learning platform built with Next.js 14, TypeScript, Tailwind CSS, Firebase, and Razorpay.
 
