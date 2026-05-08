@@ -96,10 +96,19 @@ export default function CourseCard({ course }: Props) {
           </div>
 
           {/* Pricing */}
-          <div className="flex items-baseline space-x-2 mb-4">
-            <span className="text-2xl font-bold text-emerald-300 drop-shadow">₹{course.discountedPrice.toLocaleString()}</span>
-            <span className="text-slate-500 line-through text-sm">₹{course.originalPrice.toLocaleString()}</span>
-            <span className="text-emerald-400 text-xs font-medium">{discount}% OFF</span>
+          <div className="flex items-baseline space-x-2 mb-4" role="group" aria-label="Course pricing">
+            <span className="text-2xl font-bold text-emerald-300 drop-shadow">
+              <span className="sr-only">Discounted price </span>
+              ₹{course.discountedPrice.toLocaleString()}
+            </span>
+            <span className="text-slate-500 line-through text-sm">
+              <span className="sr-only">Original price </span>
+              ₹{course.originalPrice.toLocaleString()}
+            </span>
+            <span className="text-emerald-400 text-xs font-medium">
+              <span className="sr-only">Discount </span>
+              {discount}% OFF
+            </span>
           </div>
 
           {/* Disclaimer for Job Guaranteed */}

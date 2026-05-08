@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { PARTNER_COMPANIES } from '@/utils/constants';
@@ -9,6 +10,36 @@ const STATS = [
   { value: '95%', label: 'Placement Rate', icon: '📈' },
   { value: '12 LPA', label: 'Avg Package', icon: '💰' },
 ];
+
+const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
+  const [failed, setFailed] = useState(false);
+  const initials = name
+    .split(' ')
+    .map((word) => word[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+
+  if (failed) {
+    return (
+      <div className="w-8 h-8 rounded-full bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center">
+        {initials}
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative w-8 h-8 flex-shrink-0">
+      <Image
+        src={logo}
+        alt={`${name} logo`}
+        fill
+        className="object-contain"
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
+};
 
 export default function TrustSection() {
   const doubled = [...PARTNER_COMPANIES, ...PARTNER_COMPANIES];
@@ -63,9 +94,7 @@ export default function TrustSection() {
                   key={`${company.name}-${i}`}
                   className="glass-effect px-6 py-4 rounded-xl flex items-center justify-center min-w-[180px] space-x-3"
                 >
-                  <div className="relative w-8 h-8 flex-shrink-0">
-                    <Image src={company.logo} alt={`${company.name} logo`} fill className="object-contain" />
-                  </div>
+                  <CompanyLogo name={company.name} logo={company.logo} />
                   <span className="text-slate-200 font-semibold text-base">{company.name}</span>
                 </div>
               ))}

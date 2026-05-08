@@ -44,7 +44,7 @@ export default function Header() {
                 PL
               </span>
               <div className="leading-none">
-                <span className="block text-[0.65rem] uppercase tracking-[0.32em] text-slate-300 font-semibold">
+                <span className="block text-xs uppercase tracking-[0.22em] text-slate-300 font-semibold">
                   Placement
                 </span>
                 <span className="text-2xl font-extrabold gradient-text">LAB</span>
