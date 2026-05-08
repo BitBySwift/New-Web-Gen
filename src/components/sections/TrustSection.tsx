@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { PARTNER_COMPANIES } from '@/utils/constants';
 
 const STATS = [
@@ -59,10 +60,13 @@ export default function TrustSection() {
             >
               {doubled.map((company, i) => (
                 <div
-                  key={`${company}-${i}`}
-                  className="glass-effect px-8 py-4 rounded-xl flex items-center justify-center min-w-[160px]"
+                  key={`${company.name}-${i}`}
+                  className="glass-effect px-6 py-4 rounded-xl flex items-center justify-center min-w-[180px] space-x-3"
                 >
-                  <span className="text-slate-300 font-semibold text-lg">{company}</span>
+                  <div className="relative w-8 h-8 flex-shrink-0">
+                    <Image src={company.logo} alt={`${company.name} logo`} fill className="object-contain" />
+                  </div>
+                  <span className="text-slate-200 font-semibold text-base">{company.name}</span>
                 </div>
               ))}
             </motion.div>

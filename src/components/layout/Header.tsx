@@ -39,8 +39,16 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold gradient-text">Placement Lab</span>
+            <Link href="/" className="flex items-center space-x-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-black text-lg shadow-lg">
+                PL
+              </span>
+              <div className="leading-none">
+                <span className="block text-[0.65rem] uppercase tracking-[0.32em] text-slate-300 font-semibold">
+                  Placement
+                </span>
+                <span className="text-2xl font-extrabold gradient-text">LAB</span>
+              </div>
             </Link>
 
             {/* Desktop Nav */}
