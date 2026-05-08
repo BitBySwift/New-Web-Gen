@@ -65,7 +65,7 @@ export default function HeroSection() {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             className="gradient-text inline-block"
           >
-            LAB
+            Lab
           </motion.span>
         </motion.h1>
 

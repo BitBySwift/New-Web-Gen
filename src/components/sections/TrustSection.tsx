@@ -37,9 +37,6 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
       height={32}
       className="object-contain"
       onError={handleError}
-      onLoadingComplete={(img) => {
-        if (img.naturalWidth === 0) handleError();
-      }}
     />
   );
 };
