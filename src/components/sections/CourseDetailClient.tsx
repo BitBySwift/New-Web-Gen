@@ -7,6 +7,7 @@ import { useAuthStore } from '@/store/authStore';
 import PaymentButton from '@/components/ui/PaymentButton';
 import AuthModal from '@/components/ui/AuthModal';
 import CountdownTimer from '@/components/ui/CountdownTimer';
+import { getFeatureIcon } from '@/utils/featureIcons';
 
 interface Props { course: Course; }
 
@@ -50,7 +51,7 @@ export default function CourseDetailClient({ course }: Props) {
               )}
             </div>
           </div>
-          <div className="relative h-64 lg:h-auto rounded-2xl overflow-hidden">
+          <div className="relative h-64 lg:h-[420px] rounded-2xl overflow-hidden">
             <Image src={course.image} alt={course.title} fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
           </div>
@@ -103,12 +104,15 @@ export default function CourseDetailClient({ course }: Props) {
             <div>
               <h2 className="text-xl font-bold text-white mb-4">What You&apos;ll Get</h2>
               <ul className="space-y-3">
-                {course.features.map((f) => (
-                  <li key={f} className="flex items-start space-x-3">
-                    <span className="text-green-400 mt-0.5 flex-shrink-0">✓</span>
-                    <span className="text-slate-300">{f}</span>
-                  </li>
-                ))}
+                {course.features.map((feature) => {
+                  const Icon = getFeatureIcon(feature);
+                  return (
+                    <li key={feature} className="flex items-start space-x-3">
+                      <Icon className="text-indigo-300 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-200 font-medium">{feature}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}

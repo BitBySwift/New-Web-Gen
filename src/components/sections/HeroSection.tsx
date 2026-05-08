@@ -57,9 +57,16 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold text-white mb-4"
+          className="text-5xl md:text-7xl font-extrabold text-white mb-4"
         >
-          Placement <span className="gradient-text">Lab</span>
+          Placement{' '}
+          <motion.span
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            className="gradient-text inline-block"
+          >
+            Lab
+          </motion.span>
         </motion.h1>
 
         {/* Rotating text */}
@@ -82,9 +89,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto"
+          className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto"
         >
-          From resume building to job placement — we&apos;ve got you covered. Join 1000+ students who transformed their careers.
+          Build a standout resume, master interviews, and step into high-growth roles with a roadmap built for real hiring.
         </motion.p>
 
         <motion.div
