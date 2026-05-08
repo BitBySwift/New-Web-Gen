@@ -13,6 +13,7 @@ const STATS = [
 
 const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   const [failed, setFailed] = useState(false);
+  const handleError = () => setFailed(true);
   const initials = name
     .split(' ')
     .map((word) => word[0])
@@ -29,15 +30,17 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   }
 
   return (
-    <div className="relative w-8 h-8 flex-shrink-0">
-      <Image
-        src={logo}
-        alt={`${name} logo`}
-        fill
-        className="object-contain"
-        onError={() => setFailed(true)}
-      />
-    </div>
+    <Image
+      src={logo}
+      alt={`${name} logo`}
+      width={32}
+      height={32}
+      className="object-contain"
+      onError={handleError}
+      onLoadingComplete={(img) => {
+        if (img.naturalWidth === 0) handleError();
+      }}
+    />
   );
 };
 
