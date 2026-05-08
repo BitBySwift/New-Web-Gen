@@ -13,7 +13,6 @@ const STATS = [
 
 const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   const [failed, setFailed] = useState(false);
-  const handleError = () => setFailed(true);
   const initials = name
     .split(' ')
     .map((word) => word[0])
@@ -36,7 +35,7 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
       width={32}
       height={32}
       className="object-contain"
-      onError={handleError}
+      onError={() => setFailed(true)}
     />
   );
 };
