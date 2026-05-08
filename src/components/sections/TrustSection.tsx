@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { PARTNER_COMPANIES } from '@/utils/constants';
 
 const STATS = [
@@ -29,14 +28,16 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   }
 
   return (
-    <Image
-      src={logo}
-      alt={`${name} logo`}
-      width={32}
-      height={32}
-      className="object-contain"
-      onError={() => setFailed(true)}
-    />
+    <div className="w-8 h-8 flex-shrink-0">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={logo}
+        alt={`${name} logo`}
+        className="w-full h-full object-contain"
+        loading="lazy"
+        onError={() => setFailed(true)}
+      />
+    </div>
   );
 };
 

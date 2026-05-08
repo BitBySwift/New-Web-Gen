@@ -111,7 +111,7 @@ export default function CourseCard({ course }: Props) {
 
           {/* Disclaimer for Job Guaranteed */}
           {course.category === 'guaranteed' && (
-            <p className="text-xs text-yellow-400/70 mb-3">* Pay after placement. T&amp;C apply.</p>
+            <p className="text-xs text-yellow-400/70 mb-3">* Pay after placement. T&C apply.</p>
           )}
 
           {/* CTA */}
