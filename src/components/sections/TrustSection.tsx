@@ -12,14 +12,30 @@ const STATS = [
 
 const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   const [failed, setFailed] = useState(false);
+  const [logoSrc, setLogoSrc] = useState(logo);
+  const [fallbackTried, setFallbackTried] = useState(false);
   const initials = name
     .split(' ')
     .map((word) => word[0])
     .join('')
     .slice(0, 2)
     .toUpperCase();
+  const fallbackDomain = (() => {
+    try {
+      const parsed = new URL(logo);
+      if (parsed.hostname === 'logo.clearbit.com') {
+        return parsed.pathname.replace('/', '');
+      }
+      return parsed.hostname;
+    } catch {
+      return '';
+    }
+  })();
+  const fallbackSrc = fallbackDomain
+    ? `https://www.google.com/s2/favicons?domain=${fallbackDomain}&sz=128`
+    : '';
 
-  if (failed) {
+  if (failed || !logoSrc) {
     return (
       <div className="w-8 h-8 rounded-full bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center">
         {initials}
@@ -27,15 +43,24 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
     );
   }
 
+  const handleError = () => {
+    if (!fallbackTried && fallbackSrc) {
+      setFallbackTried(true);
+      setLogoSrc(fallbackSrc);
+      return;
+    }
+    setFailed(true);
+  };
+
   return (
     <div className="w-8 h-8 flex-shrink-0">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={logo}
+        src={logoSrc}
         alt={`${name} logo`}
         className="w-full h-full object-contain"
-        loading="lazy"
-        onError={() => setFailed(true)}
+        loading="eager"
+        onError={handleError}
       />
     </div>
   );
