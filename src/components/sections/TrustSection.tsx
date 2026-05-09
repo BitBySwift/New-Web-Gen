@@ -24,7 +24,7 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
     try {
       const parsed = new URL(logo);
       if (parsed.hostname === 'logo.clearbit.com') {
-        return parsed.pathname.replace('/', '');
+        return parsed.pathname.slice(1);
       }
       return parsed.hostname;
     } catch {
@@ -59,7 +59,7 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
         src={logoSrc}
         alt={`${name} logo`}
         className="w-full h-full object-contain"
-        loading="eager"
+        loading="lazy"
         onError={handleError}
       />
     </div>
