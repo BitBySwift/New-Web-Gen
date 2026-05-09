@@ -10,7 +10,7 @@ const STATS = [
   { value: '12 LPA', label: 'Avg Package', icon: '💰' },
 ];
 // Extract the domain from Clearbit logo URLs to use as a favicon fallback.
-const CLEARBIT_DOMAIN_REGEX = /^https?:\/\/logo\.clearbit\.com\/([^/?#]+)/i;
+const CLEARBIT_LOGO_DOMAIN_REGEX = /^https?:\/\/logo\.clearbit\.com\/([^/?#]+)/i;
 
 const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   const [failed, setFailed] = useState(false);
@@ -29,7 +29,7 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   }, [logo]);
 
   const fallbackDomain = useMemo(() => {
-    const match = logo.match(CLEARBIT_DOMAIN_REGEX);
+    const match = logo.match(CLEARBIT_LOGO_DOMAIN_REGEX);
     return match ? match[1] : '';
   }, [logo]);
   const fallbackSrc = useMemo(
