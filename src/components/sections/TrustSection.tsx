@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { PARTNER_COMPANIES } from '@/utils/constants';
 
@@ -20,11 +20,17 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
     .join('')
     .slice(0, 2)
     .toUpperCase();
+  useEffect(() => {
+    setLogoSrc(logo);
+    setFallbackTried(false);
+    setFailed(false);
+  }, [logo]);
+
   const fallbackDomain = (() => {
     try {
       const parsed = new URL(logo);
       if (parsed.hostname === 'logo.clearbit.com') {
-        return parsed.pathname.slice(1);
+        return parsed.pathname.slice(1).replace(/\/$/, '');
       }
       return parsed.hostname;
     } catch {
