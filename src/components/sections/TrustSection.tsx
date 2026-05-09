@@ -27,16 +27,8 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   }, [logo]);
 
   const fallbackDomain = useMemo(() => {
-    try {
-      const parsed = new URL(logo);
-      if (parsed.hostname === 'logo.clearbit.com') {
-        return parsed.pathname.slice(1).replace(/\/$/, '');
-      }
-      return parsed.hostname;
-    } catch {
-      // Invalid logo URLs should not break the section layout.
-      return '';
-    }
+    const match = logo.match(/^https?:\/\/logo\.clearbit\.com\/([^/?#]+)/i);
+    return match ? match[1] : '';
   }, [logo]);
   const fallbackSrc = useMemo(
     () =>
