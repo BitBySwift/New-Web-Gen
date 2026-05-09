@@ -14,7 +14,8 @@ const CLEARBIT_LOGO_DOMAIN_REGEX = /^https?:\/\/logo\.clearbit\.com\/([^/?#]+)/i
 
 const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   const [failed, setFailed] = useState(false);
-  const [logoSrc, setLogoSrc] = useState(logo);
+  // Initialize from the prop for first render; useEffect keeps it in sync on updates.
+  const [logoSrc, setLogoSrc] = useState(() => logo);
   const [fallbackTried, setFallbackTried] = useState(false);
   const initials = name
     .split(' ')
@@ -30,6 +31,7 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
 
   const fallbackDomain = useMemo(() => {
     const match = logo.match(CLEARBIT_LOGO_DOMAIN_REGEX);
+    // match[1] contains the captured domain segment from the regex.
     return match ? match[1] : '';
   }, [logo]);
   const fallbackSrc = useMemo(
