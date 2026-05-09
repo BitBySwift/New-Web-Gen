@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaWhatsapp, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
-import { SOCIAL_LINKS } from '@/utils/constants';
+import { LOGO_URL, SOCIAL_LINKS } from '@/utils/constants';
 
 export default function Footer() {
   return (
@@ -8,7 +9,18 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold gradient-text mb-3">Placement Lab</h3>
+            <div className="flex items-center space-x-3 mb-3">
+              <a href="/" target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={LOGO_URL}
+                  alt="Placement Lab logo"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-full object-contain"
+                />
+              </a>
+              <h3 className="text-2xl font-bold gradient-text">Placement Lab</h3>
+            </div>
             <p className="text-slate-400 text-sm max-w-xs">
               Your career guidance and job-oriented learning platform. We shape careers, not just resumes.
             </p>
