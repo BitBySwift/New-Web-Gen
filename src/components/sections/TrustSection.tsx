@@ -34,11 +34,15 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
       }
       return parsed.hostname;
     } catch {
+      // Invalid logo URLs should not break the section layout.
       return '';
     }
   }, [logo]);
   const fallbackSrc = useMemo(
-    () => (fallbackDomain ? `https://www.google.com/s2/favicons?domain=${fallbackDomain}&sz=128` : ''),
+    () =>
+      fallbackDomain
+        ? `https://www.google.com/s2/favicons?domain=${encodeURIComponent(fallbackDomain)}&sz=128`
+        : '',
     [fallbackDomain],
   );
 
