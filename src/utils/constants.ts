@@ -2,6 +2,8 @@ import { Course, Testimonial } from '@/types';
 
 export const APP_NAME = 'Placement Lab';
 export const APP_DESCRIPTION = 'Your career guidance and job-oriented learning platform';
+export const LOGO_URL =
+  'https://github.com/user-attachments/assets/b89da58b-4c8d-4d1f-a8af-cad81aa17f6c';
 
 export const COURSES: Course[] = [
   {
@@ -19,9 +21,9 @@ export const COURSES: Course[] = [
       'Resume Building',
       'Resume Review by Experts',
       'Mock Interviews',
-      'Git & GitHub Basics',
+      'Git and GitHub Basics',
       'Project Guidance',
-      'Job Links',
+      'WhatsApp Job Alerts',
       'Certificate of Completion',
     ],
     tools: ['Git', 'GitHub', 'Resume Tools', 'Interview Prep'],
@@ -43,13 +45,13 @@ export const COURSES: Course[] = [
     features: [
       'Portfolio Building',
       'Advanced Resume + ATS Optimization',
-      'LinkedIn Optimization',
-      'Multiple Mock Interviews',
+      'LinkedIn Profile Optimization',
+      'Multiple Mock Interviews with Experts',
       'DSA Basics',
       'System Design Intro',
       'LeetCode Practice',
-      'Assignments & Tests',
-      'Job WhatsApp Alerts',
+      'Tests and Assignments',
+      'WhatsApp Job Alerts',
     ],
     tools: ['DSA', 'LeetCode', 'LinkedIn', 'System Design', 'JavaScript'],
     timeline: '8 weeks',
@@ -68,7 +70,14 @@ export const COURSES: Course[] = [
     badge: '🟣',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f70504233?w=500&h=300&fit=crop',
     features: [
-      'Advanced DSA',
+      'DSA (Data Structure & Algorithm) Scratch to Advance',
+      'Advanced Portfolio Building',
+      'Advanced Resume + ATS Optimization',
+      'LinkedIn Profile Optimization',
+      'Multiple Mock Interviews with Experts',
+      'LeetCode Practice',
+      'Tests and Assignments',
+      'WhatsApp Job Alerts',
       'System Design',
       'One Tech Stack (User Choice)',
       'Communication Skills',
@@ -95,12 +104,13 @@ export const COURSES: Course[] = [
     badge: '🔴',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
     features: [
-      'Full Training (DSA + Dev + Interview)',
-      'Resume + LinkedIn + Job Profiles',
+      'Full Training (DSA, Development, and Interview Prep)',
+      'Resume, LinkedIn, and Job Profiles',
       'Mock Interviews (Weekly)',
-      'Job Assistance',
+      'Job Placement Assistance',
+      'WhatsApp Job Alerts',
       'Pay After Placement Model',
-      '6 Months Duration',
+      '6-Month Duration',
       'Multiple Tech Tracks',
       'Mentorship',
       'Salary Guarantee (12 LPA minimum)',

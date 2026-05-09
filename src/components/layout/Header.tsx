@@ -1,10 +1,12 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { useAuthStore } from '@/store/authStore';
 import AuthModal from '@/components/ui/AuthModal';
+import { LOGO_URL } from '@/utils/constants';
 
 const NAV_LINKS = [
   { label: 'Courses', href: '#courses' },
@@ -39,9 +41,13 @@ export default function Header() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-black text-lg shadow-lg">
-                PL
-              </span>
+              <Image
+                src={LOGO_URL}
+                alt="Placement Lab logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-full object-contain"
+              />
               <div className="leading-none">
                 <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold">
                   Placement
