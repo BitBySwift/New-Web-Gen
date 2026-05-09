@@ -15,7 +15,7 @@ const HIGHLIGHTS = [
   {
     title: 'Always Improving',
     description:
-      'Ahead, we continue to expand mentorship, employer connections, and career resources to help more learners succeed.',
+      'Going forward, we continue to expand mentorship, employer connections, and career resources to help more learners succeed.',
   },
 ];
 
