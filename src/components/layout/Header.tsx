@@ -8,10 +8,12 @@ import AuthModal from '@/components/ui/AuthModal';
 
 const NAV_LINKS = [
   { label: 'Courses', href: '#courses' },
-  { label: 'Enrolled Courses', href: '/dashboard' },
   { label: 'About Us', href: '#about' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'FAQ', href: '#faq' },
+  { label: 'Terms', href: '#terms' },
   { label: 'Success Stories', href: '#testimonials' },
+  { label: 'Contact Us', href: '#contact' },
+  { label: 'Enrolled Courses', href: '/dashboard' },
 ];
 
 export default function Header() {

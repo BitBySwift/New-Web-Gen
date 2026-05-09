@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { PARTNER_COMPANIES } from '@/utils/constants';
 
@@ -9,17 +9,40 @@ const STATS = [
   { value: '95%', label: 'Placement Rate', icon: '📈' },
   { value: '12 LPA', label: 'Avg Package', icon: '💰' },
 ];
+// Extract the domain from Clearbit logo URLs to use as a favicon fallback.
+const CLEARBIT_LOGO_HOSTNAME_PATTERN = /^https?:\/\/logo\.clearbit\.com\/([^/:?#]+)/i;
 
 const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
   const [failed, setFailed] = useState(false);
+  // Initialize from the prop for first render; useEffect keeps it in sync on updates.
+  const [logoSrc, setLogoSrc] = useState(() => logo);
+  const [fallbackTried, setFallbackTried] = useState(false);
   const initials = name
     .split(' ')
     .map((word) => word[0])
     .join('')
     .slice(0, 2)
     .toUpperCase();
+  useEffect(() => {
+    setLogoSrc(logo);
+    setFallbackTried(false);
+    setFailed(false);
+  }, [logo]);
 
-  if (failed) {
+  const fallbackDomain = useMemo(() => {
+    const match = logo.match(CLEARBIT_LOGO_HOSTNAME_PATTERN);
+    // match[1] contains the captured domain segment from the regex.
+    return match ? match[1] : '';
+  }, [logo]);
+  const fallbackSrc = useMemo(
+    () =>
+      fallbackDomain
+        ? `https://www.google.com/s2/favicons?domain=${encodeURIComponent(fallbackDomain)}&sz=128`
+        : '',
+    [fallbackDomain],
+  );
+
+  if (failed || !logoSrc) {
     return (
       <div className="w-8 h-8 rounded-full bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center">
         {initials}
@@ -27,15 +50,24 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
     );
   }
 
+  const handleError = () => {
+    if (!fallbackTried && fallbackSrc) {
+      setFallbackTried(true);
+      setLogoSrc(fallbackSrc);
+      return;
+    }
+    setFailed(true);
+  };
+
   return (
     <div className="w-8 h-8 flex-shrink-0">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={logo}
+        src={logoSrc}
         alt={`${name} logo`}
         className="w-full h-full object-contain"
         loading="lazy"
-        onError={() => setFailed(true)}
+        onError={handleError}
       />
     </div>
   );
@@ -45,7 +77,7 @@ export default function TrustSection() {
   const doubled = [...PARTNER_COMPANIES, ...PARTNER_COMPANIES];
 
   return (
-    <section className="py-20 overflow-hidden" id="about">
+    <section className="py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Stats */}
         <motion.div
