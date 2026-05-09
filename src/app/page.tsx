@@ -6,7 +6,6 @@ import TrustSection from '@/components/sections/TrustSection';
 import CoursesSection from '@/components/sections/CoursesSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import FAQSection from '@/components/sections/FAQSection';
-import TermsSection from '@/components/sections/TermsSection';
 import ContactSection from '@/components/sections/ContactSection';
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
       <CoursesSection />
       <TestimonialsSection />
       <FAQSection />
-      <TermsSection />
       <ContactSection />
       <Footer />
     </main>
