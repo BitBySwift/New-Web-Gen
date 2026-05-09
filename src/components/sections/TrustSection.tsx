@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { PARTNER_COMPANIES } from '@/utils/constants';
 
@@ -26,7 +26,7 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
     setFailed(false);
   }, [logo]);
 
-  const fallbackDomain = (() => {
+  const fallbackDomain = useMemo(() => {
     try {
       const parsed = new URL(logo);
       if (parsed.hostname === 'logo.clearbit.com') {
@@ -36,10 +36,11 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
     } catch {
       return '';
     }
-  })();
-  const fallbackSrc = fallbackDomain
-    ? `https://www.google.com/s2/favicons?domain=${fallbackDomain}&sz=128`
-    : '';
+  }, [logo]);
+  const fallbackSrc = useMemo(
+    () => (fallbackDomain ? `https://www.google.com/s2/favicons?domain=${fallbackDomain}&sz=128` : ''),
+    [fallbackDomain],
+  );
 
   if (failed || !logoSrc) {
     return (
