@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-3">
-              <a href={LOGO_URL} target="_blank" rel="noopener noreferrer">
+              <a href="/" target="_blank" rel="noopener noreferrer">
                 <Image
                   src={LOGO_URL}
                   alt="Placement Lab logo"
