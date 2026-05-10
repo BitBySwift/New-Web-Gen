@@ -7,7 +7,7 @@ A modern, job-oriented learning platform built with Next.js 14, TypeScript, Tail
 ## 🚀 Features
 
 - **OTP-based Authentication** via Firebase Phone Auth
-- **Course Catalog** with 4 career packs (Essential, Professional, Advanced, Job Guaranteed)
+- **Course Catalog** with 4 career packs (Essential, Professional, Advanced, Complete Industry Training)
 - **Razorpay Payment Integration** with order creation & signature verification
 - **User Dashboard** with enrolled courses and purchase history
 - **Glassmorphism UI** with Framer Motion animations
@@ -98,4 +98,4 @@ npm run build
 
 ## ⚠️ Disclaimer
 
-The "Pay After Placement" model and salary guarantee for the Job Guaranteed Program are subject to terms and conditions. Results may vary based on individual effort and market conditions.
+The "Pay After Placement" model and salary guarantee for the Complete Industry Training program are subject to terms and conditions. Results may vary based on individual effort and market conditions.
