@@ -66,7 +66,9 @@ const CompanyLogo = ({ name, logo }: { name: string; logo: string }) => {
         src={logoSrc}
         alt={`${name} logo`}
         className="w-full h-full object-contain"
-        loading="lazy"
+        loading="eager"
+        decoding="async"
+        referrerPolicy="no-referrer"
         onError={handleError}
       />
     </div>
