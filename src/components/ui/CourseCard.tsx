@@ -109,7 +109,7 @@ export default function CourseCard({ course }: Props) {
             <dd className="text-emerald-400 text-xs font-medium">{discount}% OFF</dd>
           </dl>
 
-          {/* Disclaimer for Job Guaranteed */}
+          {/* Disclaimer for guaranteed program */}
           {course.category === 'guaranteed' && (
             <p className="text-xs text-yellow-400/70 mb-3">* Pay after placement. T&C apply.</p>
           )}

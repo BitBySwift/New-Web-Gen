@@ -38,7 +38,7 @@ export default function Footer() {
               <li><Link href="/courses/essential-pack" className="hover:text-white transition-colors">Essential Pack</Link></li>
               <li><Link href="/courses/professional-pack" className="hover:text-white transition-colors">Professional Pack</Link></li>
               <li><Link href="/courses/advanced-career-pack" className="hover:text-white transition-colors">Advanced Career Pack</Link></li>
-              <li><Link href="/courses/job-guaranteed-program" className="hover:text-white transition-colors">Job Guaranteed Program</Link></li>
+              <li><Link href="/courses/complete-industry-training" className="hover:text-white transition-colors">Complete Industry Training</Link></li>
             </ul>
           </div>
 
