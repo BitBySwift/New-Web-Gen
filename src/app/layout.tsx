@@ -5,6 +5,9 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Placement Lab - Job-Oriented Courses',
   description: 'Your career guidance and job-oriented learning platform. Land your dream job with Placement Lab.',
+  icons: {
+    icon: 'https://github.com/user-attachments/assets/eb93e301-34f6-4985-973a-1e000952a02a',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

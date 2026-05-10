@@ -3,7 +3,7 @@ import { Course, Testimonial } from '@/types';
 export const APP_NAME = 'Placement Lab';
 export const APP_DESCRIPTION = 'Your career guidance and job-oriented learning platform';
 export const LOGO_URL =
-  'https://github.com/user-attachments/assets/b89da58b-4c8d-4d1f-a8af-cad81aa17f6c';
+  'https://github.com/user-attachments/assets/eb93e301-34f6-4985-973a-1e000952a02a';
 
 export const COURSES: Course[] = [
   {
