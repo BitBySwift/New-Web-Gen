@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
+import { LOGO_URL } from '@/utils/constants';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Placement Lab - Job-Oriented Courses',
   description: 'Your career guidance and job-oriented learning platform. Land your dream job with Placement Lab.',
   icons: {
-    icon: 'https://github.com/user-attachments/assets/eb93e301-34f6-4985-973a-1e000952a02a',
+    icon: LOGO_URL,
   },
 };
 
