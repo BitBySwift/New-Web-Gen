@@ -17,6 +17,7 @@ export default function CourseDetailClient({ course }: Props) {
   const [activeTab, setActiveTab] = useState('Overview');
   const [authOpen, setAuthOpen] = useState(false);
   const { isAuthenticated } = useAuthStore();
+  const overviewDescription = course.detailDescription ?? course.description;
 
   return (
     <div className="pt-24 pb-20">
@@ -82,7 +83,7 @@ export default function CourseDetailClient({ course }: Props) {
           {activeTab === 'Overview' && (
             <div>
               <h2 className="text-xl font-bold text-white mb-4">About This Course</h2>
-              <p className="text-slate-400">{course.description}</p>
+              <p className="text-slate-400">{overviewDescription}</p>
               {course.tracks && (
                 <div className="mt-6">
                   <h3 className="text-white font-semibold mb-3">Available Tracks</h3>

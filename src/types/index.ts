@@ -15,6 +15,7 @@ export interface Course {
   title: string;
   slug: string;
   description: string;
+  detailDescription?: string;
   originalPrice: number;
   discountedPrice: number;
   category: 'essential' | 'professional' | 'advanced' | 'guaranteed';
